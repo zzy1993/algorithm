@@ -1,0 +1,24 @@
+# next permutation
+
+# vars, paras
+
+
+# cases
+%[5#, 9, .., 6, 4, .., 0] => [6#, 0, .., 5, 7, .., 9] <<<<
+last top (i)
+keep i>0
+last top prev (i-1)
+reverse all after (i-1)
+find num[j] exactly right larger than num[i-1]
+swap num[j], num[i-1]
+
+# tip
+>>>>
+while i > 0 and nums[i - 1] >= nums[i]:
+  i -= 1
+====
+while i > 0:
+  if nums[i - 1] < nums[i]:
+    break
+  i -= 1
+<<<<

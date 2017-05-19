@@ -1,0 +1,14 @@
+# JAVA
+
+1. no-curly-braces IF in line only.
+2. variable type
+3. function return type: `void?int`
+4. semicolon: `;`
+
+# 套路
+>>>>
+char[] cs = s.toCharArray();
+Arrays.sort(cs);
+String sSorted = new String(cs);
+System.out.println(sSorted);
+<<<<

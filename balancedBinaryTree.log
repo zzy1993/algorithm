@@ -1,0 +1,22 @@
+E110 balancedBinaryTree
+
+Given a binary tree, determine if it is height-balanced.
+A height-balanced binary tree is
+a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+====
+#tag
+<t>
+====
+(TreeNode)root => #
+>>>>
+private int helper(TreeNode root){
+  if(root == null){
+    return 0;
+  }
+  helper(root.left);
+  helper(root.right);
+
+}
+<<<<
+====
+<w>

@@ -1,0 +1,14 @@
+
+#kMeans
+
+(k=3
+随机选3个点
+其他点到该点欧几里得距离,最小者归入对应cluster
+每cluster内取重心点位(cluster centroid), 作为新的3点
+..循环
+
+
+理想结束条件: 方差sse 达到最小
+实际结束条件: 1. sse低于阈值 or 2. 到达次数
+
+convergence

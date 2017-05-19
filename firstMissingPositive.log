@@ -1,0 +1,19 @@
+E41 First Missing Positive
+
+Given an unsorted integer array, find the first missing positive integer.
+For example,Given [1,2,0] return 3, and [3,4,-1,1] return 2.
+Your algorithm should run in O(n) time and uses constant space.
+====
+#tag
+基数性质
+重排数列, 最终使键值对应
+>>>>
+%ls:%
+int i = 0;
+int sol = 0;
+int[] rec = int[ls.length];
+while (i < ls.length{
+  if(ls[i] <= 0) continue;
+  if
+}
+<<<<
