@@ -1,0 +1,39 @@
+I637 checkWordAbbreviation
+
+Given a non-empty string word and an abbreviation abbr,
+return whether the string matches with the given abbreviation.
+A string such as "word" contains only the following valid abbreviations:
+["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2",
+ "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+====
+@while-while套路
+@结果不包括含零情况
+@m1/m2保证不越位: if (m1 >= word.length() || m2 >= abbr.length()) break;
+====
+#word, abbr => isSame
+>>>>
+int m1 = 0;
+int m2 = 0;
+int temp = 0;
+while(m1 < word.length() && m2 < abbr.length()){
+    while(m2 < abbr.length() && '0' <= abbr.charAt(m2) && abbr.charAt(m2) <= '9'){
+        temp = temp * 10 + (abbr.charAt(m2) - '0');
+        ++m2;
+        //@注意 0 情况
+        if(temp == 0) return false;
+    }
+    m1 += temp;
+    temp = 0;
+    if (m1 >= word.length() || m2 >= abbr.length()) break;
+    if(word.charAt(m1) != abbr.charAt(m2)){
+        return false;
+    }else{
+        ++m1;
+        ++m2;
+    }
+}
+if(m1 == word.length() && m2 == abbr.length()){
+    return true;
+}
+return false;
+<<<<

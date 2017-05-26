@@ -1,0 +1,55 @@
+E91 I512 decodeWays
+
+A message containing letters from A-Z is being encoded to numbers using the following mapping:
+'B' -> '2'
+Given an encoded message containing digits, determine the total number of ways to decode it.
+====
+要求计算最多的解码方法
+初始条件不一致 ""取0, 而 ls[0] = 1
+ls[i-1], s[i-1], ls[i]
+"a": 非零
+"ab": 9<"ab"<=26
+====
+@DynaProgramming
+>>>>
+if (s.length() == 0) return 0;
+int[] ls = new int[s.length() + 1];
+ls[0] = 1;
+int i = 1;
+while(i < s.length() + 1){
+    if (i >= 1 && s.charAt(i-1) != '0') ls[i] += ls[i - 1];
+    if (i >= 2){
+        int temp = (s.charAt(i-2) - '0') * 10 + (s.charAt(i - 1) - '0');
+        if (10 <= temp && temp <= 26) ls[i] += ls[i - 2];
+    }
+    ++i;
+}
+return ls[s.length()];
+<<<<
+@OVERTIME
+>>>>
+public int numDecodings(String s) {
+    // Write your code here
+    if (s.length() == 0) return 0;
+    return this.helper(s, 0);
+}
+public int helper(String s, int m){
+    if(m == s.length()){
+        return 1;
+    }
+    if(m > s.length()){
+        return 0;
+    }
+    if(s.charAt(m) == '0'){
+        return 0;
+    }
+    int sol = this.helper(s, m + 1);
+    if(m + 1 < s.length()){
+        int num = new Integer(s.substring(m, m+2));
+        if (num <= 26){
+            sol += this.helper(s, m + 2);
+        }
+    }
+    return sol;
+}
+<<<<

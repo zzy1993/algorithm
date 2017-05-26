@@ -5,17 +5,60 @@ A height-balanced binary tree is
 a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 ====
 #tag
-<t>
 ====
-(TreeNode)root => #
+%(TreeNode)root => #
+====
+@含全局变量
 >>>>
-private int helper(TreeNode root){
-  if(root == null){
+boolean res = true;
+public boolean isBalanced(TreeNode root) {
+  if (root == null) return true;
+  this.helper(root);
+  return this.res;
+}
+public int helper(TreeNode root){
+  if (root == null) return 0;
+  int leftHeight = this.helper(root.left);
+  int rightHeight = this.helper(root.right);
+  if (Math.abs(leftHeight - rightHeight) > 1) this.res = false;
+  return Math.max(leftHeight, rightHeight) + 1;
+}
+<<<<
+====
+@the bottom up way
+use -1/other int as invalid/valid
+>>>>
+bool isBalanced(TreeNode root) {
+  return this.helper(root) != -1;
+}
+int helper(TreeNode root) {
+  if (root == NULL)
     return 0;
-  }
-  helper(root.left);
-  helper(root.right);
-
+  int leftHeight = this.helper(root.left);
+  if (leftHeight == -1)
+    return -1;
+  int rightHeight = this.helper(root.right);
+  if (rightHeight == -1)
+    return -1;
+  if (Math.abs(leftHeight - rightHeight) > 1)
+    return -1;
+  return max(leftHeight, rightHeight) + 1;
+}
+<<<<
+====
+@the top down approach
+>>>>
+bool isBalanced (TreeNode root) {
+  if (root == null)
+    return true;
+  int left = this.helper(root.left);
+  int right = this.helper(root.right);
+  return Math.abs(left - right) <= 1 && this.isBalanced(root.left) && this.isBalanced(root.right);
+}
+int helper (TreeNode root) {
+  if (root == null)
+    return 0;
+  return Math.max(this.helper(root.left), this.helper(root.right)) + 1;
 }
 <<<<
 ====
