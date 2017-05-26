@@ -1,0 +1,15 @@
+I626 rectangleOverlap
+
+Given two rectangles, find if the given two rectangles overlap or not.
+Given l1 = [0, 8], r1 = [8, 0], l2 = [6, 6], r2 = [10, 0], return true
+Given l1 = [0, 8], r1 = [8, 0], l2 = [9, 6], r2 = [10, 0], return false
+====
+@非overlap四个点都在某边对应直线之`外侧`
+====
+#Point l1, Point r1, Point l2, Point r2 => isOverlap
+>>>>
+if (l1.x > r2.x || r1.x < l2.x || r1.y > l2.y || l1.y < r2.y){
+    return false;
+}
+return true;
+<<<<

@@ -12,3 +12,13 @@
 实际结束条件: 1. sse低于阈值 or 2. 到达次数
 
 convergence
+
+cross validation
+
+1:99 测试:验证
+
+98% 正确率
+f1 96%
+f2 80%
+
+1000 => 7:2:1 training:choice:testing
